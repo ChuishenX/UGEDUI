@@ -1,3 +1,0 @@
-([('main',
-   '/Users/zhengwanlun/Desktop/Python/UGEDUI/dist/main',
-   'EXECUTABLE')],)
