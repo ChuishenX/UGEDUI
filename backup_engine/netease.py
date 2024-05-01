@@ -1,7 +1,6 @@
 from curses.ascii import isdigit
 import os, requests, json, sys
 from pydub import AudioSegment
-from curses.ascii import isdigit
 from sre_compile import isstring
 from mutagen.id3 import ID3, APIC, TIT2, TPE1, TALB
 from selenium import webdriver
