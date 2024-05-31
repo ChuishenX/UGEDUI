@@ -19,11 +19,21 @@ except:
 
 os.chdir(os.path.join(os.path.abspath('.'),"downloads"))
 
-# # 如果没有安装ffmpeg，这里会给你一个包让你安装。
-# try:
-#     os.system("ffmpeg")
-# except:
-#     pass
+def ffmpeg_install():
+    # automatic installation of ffmpeg on Windows 10 and above
+    if os.system("ffmpeg.exe") == -1:
+        print("Downloading ffmpeg...")
+        url = "https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-4.4-essentials_build.zip"
+        with open("ffmpeg.zip", "wb") as f:
+            f.write(get(url, headers=headers).content)
+        import zipfile
+        with zipfile.ZipFile("ffmpeg.zip", "r") as zip_ref:
+            zip_ref.extractall()
+        os.remove("ffmpeg.zip")
+        print("Downloaded ffmpeg.")
+    else:
+        print("ffmpeg already exists.")
+
 
 def customdownload(url, dir, merge, q): # 适配多进程
     try:
